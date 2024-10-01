@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "Python Boilerplate"
+name = "Daily Send MSG to Telegram Python Boilerplate"
 version = "0.1.0"
-description = ""
+description = "Send msg to Telegram via GitHub Actions every day"
 authors = ["GennadyBr <gennady.budazhapov@gmail.com>"]
 license = "MIT"
 readme = "README.md"
