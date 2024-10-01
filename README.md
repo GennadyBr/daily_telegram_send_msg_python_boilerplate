@@ -1,1 +1,1 @@
-# Send msg to Telegramm via GitHub Actions every day
+# Send msg to Telegram via GitHub Actions every day
