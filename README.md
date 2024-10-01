@@ -1,3 +1,1 @@
-# Python_Boilerplate
-Python_Boilerplate Library
-
+# Send msg to Telegramm via GitHub Actions every day
