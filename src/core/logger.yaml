@@ -1,0 +1,19 @@
+version: 1
+disable_existing_loggers: false
+formatters:
+  std_formatter:
+    format: '%(asctime)s - %(name)s - %(levelname)s - %(module)s:%(funcName)s:%(lineno)d - %(message)s'
+handlers:
+  console:
+    level: DEBUG
+    class: logging.StreamHandler
+    formatter: std_formatter
+  file:
+    level: DEBUG
+    class: logging.FileHandler
+    formatter: std_formatter
+    filename: ''
+loggers:
+  root:
+    level: DEBUG
+    handlers: [console, file]
