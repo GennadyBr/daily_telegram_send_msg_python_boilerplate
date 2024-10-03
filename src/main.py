@@ -1,4 +1,5 @@
 """ Daily Send MSG to Telegram Python Boilerplate Library """
+
 import requests
 
 from src.core.logger import logger
@@ -8,6 +9,7 @@ from src.services.send_msg import send_msg
 
 
 def check_exc():
+    """Check exceptions"""
     my_list = [1, 2, 3, {'key': 'value'}]
 
     for i in my_list:
@@ -16,7 +18,9 @@ def check_exc():
         except Exception as e:
             logger.error(f'TypeError: {type(e)}')
             logger.error(f'Value: {i}')
-            logger.exception('METHOD EXCEPTION')
+            logger.exception(
+                'METHOD EXCE3333333333vrrrrrrrrrrvv  frvrvebevevPTION',
+            )
 
 
 if __name__ == '__main__':

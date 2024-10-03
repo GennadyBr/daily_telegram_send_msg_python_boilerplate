@@ -4,9 +4,10 @@ formatters:
   std_formatter:
     format: '%(asctime)s - %(name)s - %(levelname)s - %(module)s:%(funcName)s:%(lineno)d - %(message)s'
 handlers:
-  console:
+  colored_console:
     level: DEBUG
     class: logging.StreamHandler
+    stream: ext://sys.stdout
     formatter: std_formatter
   file:
     level: DEBUG
@@ -16,4 +17,4 @@ handlers:
 loggers:
   root:
     level: DEBUG
-    handlers: [console, file]
+    handlers: [ colored_console , file ]
