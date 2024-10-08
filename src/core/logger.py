@@ -5,34 +5,20 @@ import os
 
 import yaml
 
-from src.core.logger_colored_formatter import colored_formatter
+from src.core.colored_formatter import replace_formatter_4_all_loggers
+from src.core.config import log_config_filename, log_rotation_filename
 
-dir_name = os.path.dirname(
-    os.path.dirname(
-        os.path.dirname(os.path.abspath(__file__)),
-    ),
-)
-
-
-with open('core/logger.yaml', 'r') as logger_yaml:
-    logger_config = yaml.safe_load(logger_yaml)
-
-    # replace filename to one with current folder
-    # because I can't put current folder inside yaml file
-    logger_config['handlers']['file']['filename'] = f'{dir_name}/logs/logs.log'
+with open(log_config_filename, 'r') as file:
+    logger_config = yaml.safe_load(file)
+    logger_config['handlers']['file_rotation_handler'][
+        'filename'
+    ] = log_rotation_filename
     logging.config.dictConfig(logger_config)
-
 
 logger = logging.getLogger()
 
-logging.getLogger('urllib3').setLevel(logging.INFO)
-logging.getLogger('requests_cache').setLevel(logging.INFO)
-
-# Replace str_formatter with colored_formatter
-# because I can't put class ColoredFormatter inside yaml file
-logger.handlers[0].setFormatter(colored_formatter)
-
-logger.info('X' * 100)
+# Replace root_formatter with colored_formatter
+replace_formatter_4_all_loggers()
 
 # Test the color handler
 logger.debug('This is a debug message')
