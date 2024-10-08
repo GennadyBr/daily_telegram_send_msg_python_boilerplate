@@ -1,3 +1,5 @@
+from typing import Union
+
 import openmeteo_requests
 import requests_cache
 from retry_requests import retry
@@ -5,7 +7,7 @@ from retry_requests import retry
 from src.core.logger import logger
 
 
-def get_weather():
+def get_weather() -> Union[None, list]:
     """
     Get weather data from Open-Meteo
     """
@@ -30,11 +32,12 @@ def get_weather():
         'forecast_days': 1,
     }
 
-    responses = None
     try:
-        responses = openmeteo.weather_api(url, params=params)
+        responses: Union[None, list] = openmeteo.weather_api(
+            url, params=params,
+        )
         logger.info(f'Open-Meteo API response: {responses}')
-    except Exception as e:
-        logger.error(f'Open-Meteo API error: {e}')
+    except ConnectionError as my_error:
+        logger.exception(f'Open-Meteo API error: {my_error}')
 
     return responses

@@ -1,13 +1,15 @@
+from typing import Union
+
 import pandas as pd
 
 from src.core.logger import logger
 
 
-def process_data(responses):
+def process_data(responses: Union[None, list]) -> Union[None, pd.DataFrame]:
     """ Process weather data """
     # Process first location.
     # Add a for-loop for multiple locations or weather models
-    response = responses[0]
+    response = responses[0] if isinstance(responses, list) else responses
     logger.info(
         f'Coordinates {response.Latitude()}°N {response.Longitude()}°E',
     )
@@ -46,13 +48,10 @@ def process_data(responses):
     daily_data['precipitation_sum'] = daily_precipitation_sum
     daily_data['wind_speed_10m_max'] = daily_wind_speed_10m_max
 
-    daily_dataframe = None
     try:
-        daily_dataframe = pd.DataFrame(data=daily_data)
-    except Exception as e:
-        logger.error(f'TypeError: {type(e)}')
-        logger.error(f'Value: {daily_data}')
-        logger.exception('METHOD EXCEPTION')
+        daily_dataframe: pd.DataFrame = pd.DataFrame(data=daily_data)
+    except pd.errors.DataError as my_error:
+        logger.exception(f'Error: {my_error}. Value: {daily_data}')
 
     logger.info(f'{type(daily_dataframe)=}')
     logger.info(f'{daily_dataframe=}')

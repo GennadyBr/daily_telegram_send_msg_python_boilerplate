@@ -1,7 +1,6 @@
 """Logger"""
 
 import logging.config
-import os
 
 import yaml
 
