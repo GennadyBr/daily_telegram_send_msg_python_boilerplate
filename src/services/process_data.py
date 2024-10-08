@@ -48,8 +48,9 @@ def process_data(responses: Union[None, list]) -> Union[None, pd.DataFrame]:
     daily_data['precipitation_sum'] = daily_precipitation_sum
     daily_data['wind_speed_10m_max'] = daily_wind_speed_10m_max
 
+    daily_dataframe: Union[None, pd.DataFrame] = None
     try:
-        daily_dataframe: pd.DataFrame = pd.DataFrame(data=daily_data)
+        daily_dataframe = pd.DataFrame(data=daily_data)
     except pd.errors.DataError as my_error:
         logger.exception(f'Error: {my_error}. Value: {daily_data}')
 

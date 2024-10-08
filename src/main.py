@@ -1,7 +1,6 @@
 """ Daily Send MSG to Telegram Python Boilerplate Library """
 from typing import Union
 
-import requests
 from pandas import DataFrame
 
 from src.services.get_weather import get_weather
@@ -12,5 +11,3 @@ if __name__ == '__main__':
     weather: Union[None, list] = get_weather()
     nice_weather: Union[None, DataFrame] = process_data(weather)
     send_msg(nice_weather)
-
-    requests.get('https://yandex.ru/')
