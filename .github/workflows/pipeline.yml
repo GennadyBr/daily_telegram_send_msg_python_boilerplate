@@ -1,8 +1,8 @@
-name: Code check PEP8 naming conventions, plugin for flake8
+name: Daily send weather to Telegram
 
 on:
   schedule:
-    - cron: '* * * * *'
+    - cron: '*/3 * * * *'
 
 env:
   TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
