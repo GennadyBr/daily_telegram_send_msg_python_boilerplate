@@ -14,9 +14,9 @@ class DailyWeather(BaseModel):
 
     def __str__(self) -> str:
         return (
-            f'Дата: {self.date} \n'
-            f'Макс.темп: {round(self.temperature_2m_max,1)} \n'
-            f'Мин.темп: {round(self.temperature_2m_min)} \n'
+            f'ПОГОДА В МОСКВЕ на {self.date.date()} \n'
+            f'Макс.темп: {round(self.temperature_2m_max,1)}°C\n'
+            f'Мин.темп: {round(self.temperature_2m_min)}°C\n'
             f'Осадки: {round(self.precipitation_sum)} \n'
             f'Ветер: {round(self.wind_speed_10m_max)} м/с'
         )
