@@ -44,3 +44,5 @@ jobs:
           poetry run pytest --version
       - name: Test
         run: poetry run pytest tests/tests.py
+      - name: Run App
+        run: poetry run python main.py
