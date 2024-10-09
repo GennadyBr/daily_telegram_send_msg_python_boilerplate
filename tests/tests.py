@@ -1,10 +1,8 @@
 """ Test """
-import pytest
-from httpx import AsyncClient
+import requests
 
 
-@pytest.mark.asyncio()
-async def test_async() -> None:
+def test_async() -> None:
     """Test"""
-    client = AsyncClient()
-    await client.get('https://yandex.ru/')
+    response = requests.get('https://open-meteo.com/en/docs')
+    assert response.status_code == 200
