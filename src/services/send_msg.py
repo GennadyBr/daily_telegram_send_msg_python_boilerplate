@@ -1,10 +1,8 @@
-from typing import Union
-
-from pandas import DataFrame
-
 from src.core.logger import logger
+from src.schemas.schema import DailyWeather
 
 
-def send_msg(nice_weather: Union[None, DataFrame]) -> None:
+def send_msg(nice_weather: list[DailyWeather]) -> None:
     """Send message"""
-    logger.info(f'{nice_weather=}')
+    for weather in nice_weather:
+        logger.info(f'{weather=}')
