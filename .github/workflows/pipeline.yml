@@ -3,11 +3,6 @@ name: Code check PEP8 naming conventions, plugin for flake8
 on:
   schedule:
     - cron: '* * * * *'
-#  workflow_dispatch:
-#  push:
-#    branches: [ main, dev, master ]
-#  pull_request:
-#    branches: [ main, dev, master ]
 
 env:
   TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
