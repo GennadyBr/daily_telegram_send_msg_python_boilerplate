@@ -45,4 +45,4 @@ jobs:
       - name: Test
         run: poetry run pytest tests/tests.py
       - name: Run App
-        run: poetry run python main.py
+        run: poetry run python src/main.py

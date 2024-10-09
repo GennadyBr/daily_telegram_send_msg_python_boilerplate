@@ -1,5 +1,10 @@
 """ Daily Send MSG to Telegram Python Boilerplate Library """
+import os
+import sys
 from typing import Union
+
+# Add the root directory of your project to the Python path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from src.schemas.schema import DailyWeather
 from src.services.get_weather import get_weather
