@@ -8,8 +8,8 @@ on:
     branches: [ main, dev, master ]
 
 env:
-  TELEGRAM_BOT_TOKEN: ...
-  TELEGRAM_MSG_RECEIVER: ...
+  TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+  TELEGRAM_MSG_RECEIVER: ${{ secrets.TELEGRAM_MSG_RECEIVER }}
 
 
 jobs:
