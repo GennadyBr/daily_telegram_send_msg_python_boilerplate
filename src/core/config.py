@@ -15,5 +15,4 @@ if not os.path.exists(f'{parent_dir}/logs'):
 log_rotation_filename = f'{parent_dir}/logs/logs.log'
 
 TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
-TELEGRAM_BOT_ADRESS = os.getenv('TELEGRAM_BOT_ADRESS')
 TELEGRAM_MSG_RECEIVER = os.getenv('TELEGRAM_MSG_RECEIVER')
