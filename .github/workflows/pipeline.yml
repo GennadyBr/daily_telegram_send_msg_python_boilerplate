@@ -2,7 +2,7 @@ name: Daily send weather to Telegram
 
 on:
   schedule:
-    - cron: '*/3 * * * *'
+    - cron: '* 4 * * *'
 
 env:
   TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
