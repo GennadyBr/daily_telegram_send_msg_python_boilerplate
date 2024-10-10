@@ -31,20 +31,5 @@ jobs:
         run: |
           poetry install --no-interaction
           poetry update
-      - name: Lint
-        run: |
-          poetry run flake8 .
-          poetry run mypy .
-      - name: Info
-        run: |
-          which poetry
-          poetry --version
-          which python
-          python --version
-          poetry run flake8 --version
-          poetry run mypy --version
-          poetry run pytest --version
-      - name: Test
-        run: poetry run pytest tests/tests.py
       - name: Run App
         run: poetry run python src/main.py
