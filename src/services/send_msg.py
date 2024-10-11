@@ -23,3 +23,4 @@ def send_msg(message: list[DailyWeather]) -> None:
         params=params,
     )
     logger.info(f'response = {response}')
+    logger.info(f'response.text = {response.text}')
